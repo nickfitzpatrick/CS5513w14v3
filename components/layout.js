@@ -8,7 +8,7 @@ export default function Layout({children, home}) {
                 <title>Dynamic Routing App</title>
             </Head>
             <header>
-                <p>Week 13: Assignment 13: Headless CMS-Powered App</p>
+                <p>Week 14: Assignment 14: Final CMS-Powered App</p>
             </header>
             <main>
                 {children}
