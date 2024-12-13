@@ -11,11 +11,10 @@ export async function getStaticProps( { params } ) {
   };
 }
 
-
-
 // define a getStaticPaths() function to tell next.js all valid URLs
 export async function getStaticPaths() {
   const paths = await getAllIds();
+  // console.log("Paths:", paths);
   return {
     paths,
     fallback: false
@@ -23,32 +22,18 @@ export async function getStaticPaths() {
 }
 
 
-
 export default function Entry({ itemData }) {
-  const formatScfFields = (fields) => {
-    // split up the three fields into key-value pairs
-    const pairs = fields.split(','); 
-    const values = pairs
-    // get rid of contact_gif 
-    .filter(pair => !pair.startsWith('contact_gif:'))
-    // get the first and last name values
-    .map(pair => pair.split(':')[1].trim());
-    // join together wiht for a complete name with a space
-  return values.join(' '); 
-};
-
-  const formattedFields = formatScfFields(itemData.scf_fields);
-
+  const mediaPath = itemData.gif_path || itemData.img_path;
   return (
     <Layout>
       <article className="card col-6">
         <div className="card-body">
-          <h5 className="card-title" style={{fontWeight: 'bold', fontSize: '1.5rem'}}>{formattedFields}</h5>
+          <h5 className="card-title" style={{fontWeight: 'bold', fontSize: '1.5rem'}}>{itemData.post_title}</h5>
           <img
-              src={`https://dev-nickfitzpatrick-5513-w11.pantheonsite.io/wp-content/uploads/${itemData.gif_path}`}
-              alt="Dandadan GIF"
-              className="img-fluid mt-3"
-           />
+            src={`https://dev-nickfitzpatrick-5513-w11.pantheonsite.io/wp-content/uploads/${mediaPath}`}
+            alt="Media"
+            className="img-fluid mt-3"
+          />
         </div>
       </article>
     </Layout>
