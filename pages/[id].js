@@ -26,8 +26,8 @@ export default function Entry({ itemData }) {
   const mediaPath = itemData.gif_path || itemData.img_path;
   return (
     <Layout>
-      <article className="card col-6">
-        <div className="card-body">
+      <article className="card col-12">
+        <div className="card-body col-12">
           <h5 className="card-title" style={{fontWeight: 'bold', fontSize: '1.5rem'}}>{itemData.post_title}</h5>
           <img
             src={`https://dev-nickfitzpatrick-5513-w11.pantheonsite.io/wp-content/uploads/${mediaPath}`}
