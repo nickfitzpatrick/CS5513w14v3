@@ -8,6 +8,8 @@ export async function getStaticProps( { params } ) {
     props: {
       itemData
     },
+
+    //Next.js' ISR functionality
     revalidate: 60
   };
 }

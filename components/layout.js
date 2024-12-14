@@ -14,9 +14,9 @@ export default function Layout({children, home}) {
                 {children}
             </main>
             {!home && (
-                <Link href="/" className="btn btn-primary mt-3">
-                    Back to Home
-                </Link>
+                <Link href="/" className="btn btn-info mt-3">
+                Back to Home
+             </Link>
                 )
             }
             <footer>
